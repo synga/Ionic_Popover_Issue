@@ -18,3 +18,5 @@ Open any browser dev tools, inspect the elements and open the `<ion-app>` tag.
 Try pushing a page from the popover clicking in `Push with Dismiss`. PushedPage is pushed after ng-component, not inside of it and the problem is shown.
 
 Clicking in `Push without Dismiss` or `Push page` button everything is fine.
+
+Build for iOS to see the navbar issue, since it only occurs in iOS.
