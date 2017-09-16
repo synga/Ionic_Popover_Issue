@@ -1,14 +1,21 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>home</ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only (tap)="openPopover($event)"><ion-icon name="menu"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-row>
+    <ion-col col-6 offset-3>
+      <button ion-button block round (tap)="pushPage()">Push page</button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>
