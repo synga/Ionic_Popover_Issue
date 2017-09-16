@@ -1,26 +1,20 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## About this project
 
-## How to use this template
+It consist in 3 pages: HomePage, Popover (for the component) and PushedPage.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## The problem
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+When pushing a page in the Popover .ts file after using `viewCtrl.dismiss()` it simply pushs the page off the navigation stack and off the `<ng-component>`. Also the statusbar goes over the header, like it was a component of the page with position: absolute and top: 0.
+Using it without the `viewCtrl.dismiss()` is fine.
 
-### With the Ionic CLI:
+The problem doesn't occurs only in the first page, every page pushed after it will have the same behaviour.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+## How to reproduce the problem
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+In home there'll be a button in the page and a menu button in the header, whose opens the popover.
 
-Then, to run it, cd into `myBlank` and run:
+Open any browser dev tools, inspect the elements and open the `<ion-app>` tag.
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+Try pushing a page from the popover clicking in `Push with Dismiss`. PushedPage is pushed after ng-component, not inside of it and the problem is shown.
 
-Substitute ios for android if not on a Mac.
-
+Clicking in `Push without Dismiss` or `Push page` button everything is fine.
